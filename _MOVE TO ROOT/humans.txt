@@ -1,0 +1,11 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    CorpSpin -- Design and programming -- @corpspin
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, Wordpress, bootic, 
+    jQuery, Modernizr
