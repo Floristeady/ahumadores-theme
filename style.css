@@ -1059,7 +1059,7 @@ nav#access li.current-page-ancestor a {
 	z-index: 1;
 	float: left;
 	width: 100%;
-	margin: 0 0 2em;
+	margin: 0 0 1em;
 }
 
 .post-navigation a,
@@ -2506,6 +2506,60 @@ button.suscribe span {
 		padding-left: 0;
 		padding-right: 0;
 	}
+}
+
+.post-blog .entry-title {
+	font-size: 1.8em;
+	font-weight: normal;
+}
+
+.post-blog .entry-excerpt h2 {
+	font-family: 'MuseoSans', sans-serif;
+	font-size: 1.3em;
+}
+
+.post-blog #breadcrumbs {
+	margin-bottom: 1em;
+}
+
+.section-blog .archive-header {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.section-blog .entry-header {
+	position: relative;
+}
+
+.section-blog .entry-title {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 2;
+	background: rgba(0,0,0,.8);
+}
+
+.section-blog .entry-title h3 {
+	font-family: 'MuseoSans', sans-serif;
+	text-transform: uppercase;
+	font-size: 1.05em;
+	padding: 0 10px;
+}
+
+.section-blog .entry-title h3 a {
+	color: white;
+}
+
+.section-blog .post-link {
+	background: #8a1620;
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+	padding: .8em 2em; 
+	font-family: 'Bitter';
+	font-size: .85em;
+	margin: 1em 0 0;
+	display: inline-block;
 }
 
 

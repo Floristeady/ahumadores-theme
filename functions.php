@@ -632,8 +632,11 @@ function my_default_content( $post_content, $post ) {
 add_filter( 'default_content', 'my_default_content', 10, 2 );
 */
 
-
-// allow SVG uploads
+/**
+ * allow SVG uploads
+ *
+ * @since ahumadores 1.0
+ */
 add_filter('upload_mimes', 'custom_upload_mimes');
 function custom_upload_mimes ( $existing_mimes=array() ) {
 	$existing_mimes['svg'] = 'mime/type';
@@ -669,6 +672,110 @@ function wordpress_breadcrumbs() {
       echo $currentAfter;
     }
   }
+}
+
+/**
+ * Change label Entradas a Recetas
+ *
+ * @since ahumadores 1.0
+ */
+function revcon_change_post_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'Recetas';
+    $submenu['edit.php'][5][0] = 'Recetas';
+    $submenu['edit.php'][10][0] = 'Añadir Receta';
+}
+function revcon_change_post_object() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Recetas';
+    $labels->singular_name = 'Recetas';
+    $labels->add_new = 'Añadir Receta';
+    $labels->add_new_item = 'Añadir Receta';
+    $labels->edit_item = 'Editar';
+    $labels->new_item = 'Recetas';
+    $labels->view_item = 'Ver Recetas';
+    $labels->search_items = 'Buscar Recetas';
+    //$labels->not_found = 'No News found';
+    //$labels->not_found_in_trash = 'No News found in Trash';
+    $labels->all_items = 'Todas las Recetas';
+    $labels->menu_name = 'Recetas';
+    $labels->name_admin_bar = 'Recetas';
+}
+ 
+add_action( 'admin_menu', 'revcon_change_post_label' );
+add_action( 'init', 'revcon_change_post_object' );
+
+/**
+ * New Custom Post Type
+ *
+ * @since ahumadores 1.0
+ */
+add_action('init', 'blog_register');
+ 
+function blog_register () {
+ 
+$labels = array(
+'name' => _x('Blog', 'post type general name'),
+'singular_name' => _x('Entradas', 'post type singular name'),
+'add_new' => _x('Añadir nuevo', 'post item'),
+'add_new_item' => __('Añadir nuevo'),
+'edit_item' => __('Editar entrada'),
+'new_item' => __('Nueva entrada'),
+'view_item' => __('Ver entrada'),
+'search_items' => __('Buscar'),
+'not_found' => __('No se ha encontrado nada'),
+'not_found_in_trash' => __('No se ha encontrado nada en la papelera'),
+'parent_item_colon' => ''
+);
+ 
+$args = array(
+'labels' => $labels,
+'public' => true,
+'has_archive' => true,
+'publicly_queryable' => true,
+'show_ui' => true,
+'query_var' => true,
+'capability_type' => 'post',
+'hierarchical' => false,
+'menu_position' => null,
+'supports' => array('title','editor','thumbnail','excerpt', 'comments', 'author'),
+);
+ 
+     register_post_type( 'blog', $args );
+     flush_rewrite_rules();
+}
+
+/**
+ * Custom Taxonomy Blog
+ *
+ * @since ahumadores 1.0
+ */
+
+add_action( 'init', 'create_tax', 0 );
+
+function create_tax() {
+
+	$labels = array(
+		'name'                  => _x( 'Categorías Blog', 'Taxonomy General Name', 'castroytagle' ),
+		'singular_name'         => _x( 'Categoría Blog', 'Taxonomy Singular Name', 'castroytagle' ),
+		'menu_name'             => __( 'Categoría Blog', 'ahumadores' ),
+		'all_items'             => __( 'Todos las categorías', 'ahumadores' ),
+	);
+
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+
+	register_taxonomy( 'types', 'blog', $args );
+
 }
 
 ?>
