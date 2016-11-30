@@ -50,6 +50,7 @@ function ahumadores_setup() {
 	set_post_thumbnail_size( 765, 400, true );
 	add_image_size( 'ahumadores-full-width', 1024, 576, true );
 	add_image_size( 'thumb-landing', 370, 208, true );
+	add_image_size('blog_size_img', 380, 275, true);
 
 	// Make theme available for translation
 	// Translations can be filed in the /languages/ directory
@@ -299,6 +300,17 @@ function ahumadores_widgets_init() {
 		'name' => __( 'Footer Landing Widget Area', 'ahumadores' ),
 		'id' => 'landing-footer-widget-area',
 		'description' => __( 'An optional widget area for your site footer', 'ahumadores' ),
+		'before_widget' => '<aside id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h5 class="widget-title">',
+		'after_title' => '</h5>',
+	) );
+	
+	// Area Blog, located in the blog. Empty by default.
+	register_sidebar( array(
+		'name' => __( 'Blog Widget Area', 'ahumadores' ),
+		'id' => 'blog-widget-area',
+		'description' => __( 'An optional widget area for your site blog', 'ahumadores' ),
 		'before_widget' => '<aside id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</aside>',
 		'before_title' => '<h5 class="widget-title">',
@@ -614,23 +626,6 @@ function ahumadores_post_thumbnail() {
 	<?php endif; // End is_singular()
 }
 
-/**
- * Comments Page Off
- *
- * @since ahumadores 1.0
- *
-
-function my_default_content( $post_content, $post ) {
-    if( $post->post_type )
-    switch( $post->post_type ) {
-        case 'page':
-            $post->comment_status = 'closed';
-        break;
-    }
-    return $post_content;
-}
-add_filter( 'default_content', 'my_default_content', 10, 2 );
-*/
 
 /**
  * allow SVG uploads
@@ -758,8 +753,8 @@ add_action( 'init', 'create_tax', 0 );
 function create_tax() {
 
 	$labels = array(
-		'name'                  => _x( 'Categorías Blog', 'Taxonomy General Name', 'castroytagle' ),
-		'singular_name'         => _x( 'Categoría Blog', 'Taxonomy Singular Name', 'castroytagle' ),
+		'name'                  => _x( 'Categorías Blog', 'Taxonomy General Name', 'ahumadores' ),
+		'singular_name'         => _x( 'Categoría Blog', 'Taxonomy Singular Name', 'ahumadores' ),
 		'menu_name'             => __( 'Categoría Blog', 'ahumadores' ),
 		'all_items'             => __( 'Todos las categorías', 'ahumadores' ),
 	);
@@ -777,5 +772,6 @@ function create_tax() {
 	register_taxonomy( 'types', 'blog', $args );
 
 }
+
 
 ?>

@@ -22,14 +22,8 @@ get_header(); ?>
 	<?php if ( have_posts() ) : ?>
 
 		<header class="archive-header">
-			<h1 class="archive-title">Blog / <?php printf( __( '%s', 'ahumadores' ), single_cat_title( '', false ) ); ?></h1>
-			<?php
-				// Show an optional term description.
-				$term_description = term_description();
-				if ( ! empty( $term_description ) ) :
-					printf( '<div class="taxonomy-description">%s</div>', $term_description );
-				endif;
-			?>
+			<h1 class="archive-title">
+				<?php _e( 'Blog Ahumadores', 'ahumadores' ); ?>
 		</header><!-- .archive-header -->
 	
 		<ul class="articles small-block-grid-1 medium-block-grid-2">

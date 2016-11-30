@@ -827,7 +827,7 @@ a.more:hover {
 #menu-main > nav > div > ul > li {
   display:inline-block;
   text-align:center;
-  padding: .6em .2em;
+  padding: .6em .4em;
   float: left;
   border-right:1px dashed #a1454d;
 }
@@ -838,7 +838,7 @@ a.more:hover {
 
 #menu-main li a {
   color:#ffffff;
-  font-size:.95em;
+  font-size:.9em;
   font-family: 'Bitter', serif;
   text-transform:uppercase;
 }
@@ -2004,7 +2004,7 @@ article .post-thumbnail {
   background-repeat: no-repeat;
   background-size:inherit !important;
   text-indent: -9999px;
-  width: 36px;
+  width: 35px;
   margin: 0px 0 0 6px;
   display:inline-block;
 }
@@ -2023,6 +2023,10 @@ article .post-thumbnail {
 
 .youtube-link a {
   background-position: -67px center;
+}
+
+.instagram-link a {
+  background-position: -135px center;
 }
 
 .google-link a {
@@ -2074,24 +2078,29 @@ article .post-thumbnail {
 	float: left;
 }
 
-#aside .widget-list > div {
+#aside .widget-list > div, .widget_lc_taxonomy {
   border:1px dashed #8e7f7c;
   padding: 0 .4em .4em;
   margin: 0 0 2em;
 }
 
-#aside .widget-list .inner-aside {
+.widget_lc_taxonomy {
+	float: left;
+	width: 100%;
+}
+
+#aside .widget-list .inner-aside, .widget_lc_taxonomy > div {
 	background:#e2d8cf;
 	margin:0;
 	padding:.8em 1em 1em;
 }
 
-#aside .inner-aside ul {
+#aside .inner-aside ul, .widget_lc_taxonomy ul {
 	margin: 0;
 	padding: 0;
 }
 
-#aside .widget-list  .widget-title {
+#aside .widget-list  .widget-title, .widget_lc_taxonomy .widget-title {
   font-family: 'Cookie', cursive;
   margin:.5em 0 .2em;
   font-size:1.7em;
@@ -2100,13 +2109,13 @@ article .post-thumbnail {
   padding-left:0;
 }
 
-aside .widget-list .menu li, .widget_categories li {
+aside .widget-list .menu li, .widget_categories li, .widget_lc_taxonomy li {
 	margin: 0 0 .6em;
 	padding-left: 1.4em;
 	background: url(images/elements/repeat_triangles_orange.svg) no-repeat left center;
 }
 
-aside .widget-list .menu li a, .widget_categories li a {
+aside .widget-list .menu li a, .widget_categories li a, .widget_lc_taxonomy li a {
 	font-size: .9em; 
 }
 
@@ -2159,6 +2168,8 @@ aside .widget_categories li.current-cat a, aside .widget_categories li a:hover {
 	margin: 0 0 0 1%;
 	text-align: center;
 	padding: 10px 10px 10px;
+	clear: inherit;
+	font-family: 'MuseoSans', sans-serif;
 }
 
 .widget_featured_page_widget {
@@ -2190,6 +2201,11 @@ aside .widget_categories li.current-cat a, aside .widget_categories li a:hover {
 	margin-bottom: 1em;
 	padding-top: 1em;
 	border-top: 1px dotted #d8d7d5;
+	font-size: .8em;
+}
+
+.featured-post-widget h3 {
+	margin: 0;
 }
 
 .featured_post_content p {
@@ -2508,6 +2524,9 @@ button.suscribe span {
 	}
 }
 
+/* Blog
+  ========================================================================== */
+
 .post-blog .entry-title {
 	font-size: 1.8em;
 	font-weight: normal;
@@ -2516,10 +2535,23 @@ button.suscribe span {
 .post-blog .entry-excerpt h2 {
 	font-family: 'MuseoSans', sans-serif;
 	font-size: 1.3em;
+	margin: 1em 0 0.5em;
 }
 
 .post-blog #breadcrumbs {
 	margin-bottom: 1em;
+}
+
+.post-blog .hentry {
+	margin: 0;
+}
+
+.post-blog .comments-area {
+	margin-top: 2em;
+}
+
+.section-blog #breadcrumbs {
+	margin-bottom: 2em;
 }
 
 .section-blog .archive-header {
@@ -2542,8 +2574,8 @@ button.suscribe span {
 .section-blog .entry-title h3 {
 	font-family: 'MuseoSans', sans-serif;
 	text-transform: uppercase;
-	font-size: 1.05em;
-	padding: 0 10px;
+	font-size: 1.1em;
+	padding: 0 15px;
 }
 
 .section-blog .entry-title h3 a {
@@ -2562,11 +2594,163 @@ button.suscribe span {
 	display: inline-block;
 }
 
+.section-blog .post-link:hover, #suscribe-sidebar input[type=submit]:hover {
+	background: #751b22;
+}
 
-/* 9. Plugins
-  ========================================================================== */
+.banner-post {
+	background: #c95a35;
+	margin: 0 0 2em;
+	float: left;
+	width: 100%;
+	padding: .4em;
+}
 
-/* 10. MediaQueries
+.banner-post h4, .banner-post p {
+	color: white;
+	margin: 0;
+}
+
+.banner-post p {
+	font-size: 1.1em;
+}
+
+.banner-post .inner {
+	border: 1px dashed rgba(255, 255, 255, .2);
+    float: left;
+    width: 100%;
+    padding: 1em 0 0;
+}
+
+.banner-post .button {
+	font-family: 'MuseoSans', sans-serif;
+	font-size: .85em;
+}
+
+#suscribe-sidebar {
+	background: #c95a35;
+	float: left;
+	width: 100%;
+	padding: .7em 1.2em 1em;
+	margin:  0 0 1em;
+}
+
+#suscribe-sidebar #mc_embed_signup {
+	background: transparent !important;
+}
+
+#suscribe-sidebar h4 {
+	text-align: center;
+	color: #fff;
+	margin:.3em 0 1em;
+	line-height: 100%;
+}
+
+#suscribe-sidebar p {
+	margin: .6em 0 1em;
+	color: #fff;
+	font-size: .8em;
+	line-height: .8em;
+}
+
+#suscribe-sidebar label {
+	font-size: .95rem;
+	text-align: left;
+	color: #fff;
+	font-family: 'MuseoSans', sans-serif;
+	margin-bottom: 0;
+}
+
+#suscribe-sidebar input[type=text],#suscribe-sidebar input[type=email] {
+	width: 100%;
+	float: left;
+	background: white;
+	font-size: .8em;
+	border: 0;
+	border-radius: 0;
+	margin-bottom: 5px;
+}
+
+#suscribe-sidebar input[type=submit]{
+	float: right;
+	margin: 1em 0 0 1%;
+	text-align: center;
+	padding: 10px 10px 10px;
+	width: 100%;
+	clear: inherit;
+	background-color: #8a1620;
+	line-height: 100%;
+	font-size: 1em;
+	font-family: 'MuseoSans', sans-serif;
+	border-radius: 0;
+}
+
+#newsletter.blog {
+	background: #e2d8cf;
+}
+
+#newsletter.blog h4,  #newsletter.blog p {
+	color:#372827; 
+}
+
+#newsletter.blog input[type=text] {
+	background: white;
+}
+
+#social-sidebar {
+	background: #372827;
+	float: left;
+	width: 100%;
+	padding: .4em;
+	margin: 0 0 1em;
+}
+
+#social-sidebar .inner {
+	border: 1px dashed rgba(255, 255, 255, .2);
+    float: left;
+    width: 100%;
+    padding: 1em 0 0;
+}
+
+#social-sidebar h4 {
+	text-align: center;
+	color: white;
+	font-size: 1em;
+	margin: 0;
+}
+
+#social-sidebar .icon-face a {
+	background: url(images/elements/icon-facebook.png);
+	width: 68px;
+	height: 70px;
+	display: inline-block;
+}
+
+#social-sidebar .icon-you a {
+	background: url(images/elements/icon-youtube.png);
+	width: 68px;
+	height: 70px;
+	display: inline-block;
+}
+
+#social-sidebar ul {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#social-sidebar ul li {
+	margin: 10px;
+	display: inline-block;
+}
+
+#social-sidebar ul li a {
+	text-indent: -999em;
+    display: inline-block;
+}
+
+
+/* 9. MediaQueries
   ========================================================================== */
 
 .open_movil {display: none;}

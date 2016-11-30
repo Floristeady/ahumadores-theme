@@ -11,6 +11,8 @@
 ?>
 <?php if ( is_single() ) : ?>
 
+<?php include('inc/popup-subcribe.php'); ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
 	<header class="entry-header">
@@ -20,10 +22,8 @@
 			?>
 			
 			<div class="entry-meta <?php if ( !is_single() ) { echo 'list-meta'; } ?>">
-			<?php
-				ahumadores_posted_on();
 
-				if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
+			<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
 			?>
 			
 				<?php if ( is_single() ) : ?>
@@ -45,15 +45,25 @@
 		
 	</header>
 
+	<div class="entry-content">
+		<?php
+			the_content();
+		?>
 
-			<div class="entry-content">
-				<?php
-					the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'ahumadores' ) );
-				?>
+	</div>
+	
+	<div class="banner-post">
+		<div class="inner">
+			<div class="column medium-9">
+				<h4>¿Quieres aprender a ahumar?</h4>
+				<p>Suscríbete a nuestro CURSO ONLINE DE AHUMADO </p>
+			</div>
 		
-			</div><!-- .entry-content -->
-
-			<?php the_tags( '<footer class="entry-meta"><span class="tag-links">', '', '</span></footer>' ); ?>
+			<div class="column medium-3">
+				<button href="#" data-reveal-id="box-modal" class="button"> Suscríbirme</button>
+			</div>
+		</div>
+	</div>
 	
 	
 </article>
@@ -64,11 +74,14 @@
 
 	<header class="entry-header">
 				
-		<?php if (has_post_thumbnail()) :
+		<?php if (has_post_thumbnail()) : ?>
 			
-	 		ahumadores_post_thumbnail();  
-	 	
-	 	endif; ?>
+	 		<a class="post-thumbnail" href="<?php the_permalink(); ?>">
+			<?php the_post_thumbnail('blog_size_img'); ?>
+			</a> 
+	 	<?php else : ?>
+	 	    <img src="<?php echo get_template_directory_uri(); ?>/images/elements/no-image.jpg">
+	 	<?php endif; ?>
 		
 		<?php 
 			the_title( '<div class="entry-title"><h3><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3></div>' );
@@ -89,7 +102,7 @@
 		</div>
 		
 
-	</div><!-- .entry-content -->
+	</div>
 
 	
 	<a class="post-link" href="<?php the_permalink(); ?>"><?php _e('Leer más...', 'ahumadores')?></a>

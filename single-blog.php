@@ -11,7 +11,7 @@ get_header(); ?>
 
 <section id="content" class="site-content post-blog" role="main">
 
-	<?php include('inc/breadcrumbs.php'); ?>
+	<?php include('inc/breadcrumbs-blog.php'); ?>
 	
 	<div class="columns medium-9 no-pad">
 
@@ -29,7 +29,7 @@ get_header(); ?>
 	
 	</div>
 	
-	<?php get_sidebar(); ?>
+	<?php get_sidebar('blog'); ?>
 
 </section>
 
