@@ -1107,7 +1107,7 @@ nav#access li.current-page-ancestor a {
 /* Paging Navigation */
 
 .paging-navigation {
-	border-top: 5px solid #000;
+	border-top: 5px solid #5d4745;
 	margin: 48px 0;
 }
 
@@ -1131,12 +1131,13 @@ nav#access li.current-page-ancestor a {
 }
 
 .paging-navigation .page-numbers.current {
-	border-top: 5px solid #24890d;
+	border-top: 5px solid #8a1620;
+	color: #8a1620;
 }
 
 .paging-navigation a:hover {
-	border-top: 5px solid #691118;
-	color: #2b2b2b;
+	border-top: 5px solid #781b23;
+	color: #8a1620;
 }
 
 /* 7. Content and Edit
@@ -2600,7 +2601,7 @@ button.suscribe span {
 
 .banner-post {
 	background: #c95a35;
-	margin: 0 0 2em;
+	margin: 1em 0 2em;
 	float: left;
 	width: 100%;
 	padding: .4em;
