@@ -102,4 +102,4 @@
 
 	<div id="main" class="row" role="main">
 	<?php include('inc/popup.php'); ?>
-			
+	<?php include('inc/popup-subcribe.php'); ?>		

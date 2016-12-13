@@ -699,6 +699,11 @@ a.more:hover {
 	border-bottom: none;
 }
 
+.box-modal {
+	background: transparent;
+	padding: 0;
+}
+
 
 /* 5. Header
   ========================================================================== */
